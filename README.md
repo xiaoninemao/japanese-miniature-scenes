@@ -10,21 +10,21 @@ There are no characters, HUDs, accounts, or backend services. Opening a scene go
 
 ## Scene previews
 
-These are captures of the actual rendered models, not concept images. Click a preview to open that scene's source and instructions.
+These are captures of the actual rendered models, not concept images. Click a preview to open its interactive scene. Source folders and run instructions are listed below.
 
 | **Seaside Station** | **Hillside Bookshop** | **Rainy Florist** |
 | :---: | :---: | :---: |
-| [![A mint-roofed coastal station beside turquoise water](scenes/seaside-station/public/preview.png)](scenes/seaside-station/) | [![A terraced bookshop with a red roof and a dense autumn maple](scenes/hillside-bookshop/public/preview.png)](scenes/hillside-bookshop/) | [![A rain-soaked flower shop with hydrangeas and a tram stop](scenes/rainy-florist/public/preview.png)](scenes/rainy-florist/) |
+| [![A mint-roofed coastal station beside turquoise water](scenes/seaside-station/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/seaside-station/) | [![A terraced bookshop with a red roof and a dense autumn maple](scenes/hillside-bookshop/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/hillside-bookshop/) | [![A rain-soaked flower shop with hydrangeas and a tram stop](scenes/rainy-florist/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/rainy-florist/) |
 | Summer light, sea breeze, and an empty platform. | Old books, stone steps, and the last light of day. | Hydrangeas waiting beneath a rain shelter. |
 
 | **Mountain Onsen** | **Midnight Laundromat** | **Morning Fish Market** |
 | :---: | :---: | :---: |
-| [![A timber inn and steaming outdoor bath in an autumn garden](scenes/mountain-onsen/public/preview.png)](scenes/mountain-onsen/) | [![A blue-lit coin laundry with visible circular washing machines](scenes/midnight-laundromat/public/preview.png)](scenes/midnight-laundromat/) | [![A fish stall, timber pier, and a small fishing boat](scenes/morning-fish-market/public/preview.png)](scenes/morning-fish-market/) |
+| [![A timber inn and steaming outdoor bath in an autumn garden](scenes/mountain-onsen/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/mountain-onsen/) | [![A blue-lit coin laundry with visible circular washing machines](scenes/midnight-laundromat/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/midnight-laundromat/) | [![A fish stall, timber pier, and a small fishing boat](scenes/morning-fish-market/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/morning-fish-market/) |
 | Warm windows, fallen leaves, and rising steam. | Quiet rain while the last wash keeps turning. | A small harbor waking up beside the water. |
 
 | **Afternoon Kissaten** | **Rainy Konbini** | **Snowy Ramen Shop** |
 | :---: | :---: | :---: |
-| [![A green-awning coffee shop with patio tables and plants](scenes/afternoon-kissaten/public/preview.png)](scenes/afternoon-kissaten/) | [![A brightly stocked convenience store reflected in a wet street](scenes/rainy-konbini/public/preview.png)](scenes/rainy-konbini/) | [![A snow-covered ramen shop with lanterns and a warm counter](scenes/snowy-ramen/public/preview.png)](scenes/snowy-ramen/) |
+| [![A green-awning coffee shop with patio tables and plants](scenes/afternoon-kissaten/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/afternoon-kissaten/) | [![A brightly stocked convenience store reflected in a wet street](scenes/rainy-konbini/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/rainy-konbini/) | [![A snow-covered ramen shop with lanterns and a warm counter](scenes/snowy-ramen/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/snowy-ramen/) |
 | Coffee, pastries, and a slow afternoon. | A little island of warm light on a rainy night. | Snow at the eaves and a hot bowl inside. |
 
 ## What is inside
@@ -145,16 +145,19 @@ site/
 
 The output intentionally has **no root `index.html`**. Each scene has its own direct URL; there is no combined landing page.
 
-Automatic publishing is not enabled in this repository. To publish manually, one option is the optional [`gh-pages`](https://www.npmjs.com/package/gh-pages) command-line tool:
+### Automatic publishing
 
-```bash
-# Run only when you want to publish. This pushes built files to a gh-pages branch.
-npx gh-pages --dist site --dotfiles
-```
+The [Deploy miniature scenes](.github/workflows/deploy-pages.yml) workflow publishes through GitHub Pages:
 
-Then select **Settings → Pages → Build and deployment → Deploy from a branch**, choose `gh-pages`, and use its root directory.
+1. A push to `main` installs dependencies and runs the regression tests.
+2. All nine applications are type-checked, built, and assembled into `site/`.
+3. Only after the build succeeds is the static output deployed.
 
-After publication, a scene URL follows this pattern:
+Pull requests run the same tests and builds, but do not publish. You can also rerun a deployment from **Actions → Deploy miniature scenes → Run workflow**, using the `main` branch.
+
+The repository's Pages source is **GitHub Actions**. No deployment token or API key needs to be added to the source; the workflow uses GitHub's built-in permissions.
+
+Each published scene has its own URL:
 
 ```text
 https://xiaoninemao.github.io/japanese-miniature-scenes/seaside-station/
@@ -167,6 +170,7 @@ Use the corresponding project name for each of the other eight scenes. The repos
 ```text
 .
 ├── README.md
+├── .github/workflows/deploy-pages.yml
 ├── package.json                  # npm workspace commands
 ├── package-lock.json             # one dependency lock for the repository
 ├── scripts/
