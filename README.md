@@ -14,8 +14,8 @@ These are captures of the actual rendered models, not concept images. Click a pr
 
 | **Seaside Station** | **Hillside Bookshop** | **Rainy Florist** |
 | :---: | :---: | :---: |
-| [![A mint-roofed coastal station beside turquoise water](scenes/seaside-station/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/seaside-station/) | [![A terraced bookshop with a red roof and a dense autumn maple](scenes/hillside-bookshop/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/hillside-bookshop/) | [![A rain-soaked flower shop with hydrangeas and a tram stop](scenes/rainy-florist/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/rainy-florist/) |
-| Summer light, sea breeze, and an empty platform. | Old books, stone steps, and the last light of day. | Hydrangeas waiting beneath a rain shelter. |
+| [![A mint-roofed coastal station beside turquoise water](scenes/seaside-station/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/seaside-station/) | [![A hillside bookshop beside a continuous stone slope and connected stair landings](scenes/hillside-bookshop/public/preview.png?v=abba09c)](https://xiaoninemao.github.io/japanese-miniature-scenes/hillside-bookshop/?v=abba09c) | [![A rain-soaked flower shop with hydrangeas and a tram stop](scenes/rainy-florist/public/preview.png)](https://xiaoninemao.github.io/japanese-miniature-scenes/rainy-florist/) |
+| Summer light, sea breeze, and an empty platform. | A stone-paved slope, connected stair landings, and a full autumn maple. | Hydrangeas waiting beneath a rain shelter. |
 
 | **Mountain Onsen** | **Midnight Laundromat** | **Morning Fish Market** |
 | :---: | :---: | :---: |
@@ -42,7 +42,7 @@ These are captures of the actual rendered models, not concept images. Click a pr
 | Project | Setting | Details to look for |
 | --- | --- | --- |
 | [`seaside-station`](scenes/seaside-station/) | A sunny coastal stop | Platform benches, ticket counter, timetable, crossing barriers, waves, and a wind chime |
-| [`hillside-bookshop`](scenes/hillside-bookshop/) | An autumn hillside at sunset | Terraced stonework, stacked books, an upstairs reading room, maple foliage, and scattered leaves |
+| [`hillside-bookshop`](scenes/hillside-bookshop/) | An autumn hillside at sunset | A continuous stone slope, two stair flights, a level shop approach, an upstairs reading room, and dense maple foliage |
 | [`rainy-florist`](scenes/rainy-florist/) | A flower shop during the rainy season | Hydrangea florets, bouquets, wrapping supplies, a translucent awning, tram rails, and a rain chain |
 | [`mountain-onsen`](scenes/mountain-onsen/) | A mountain inn on an autumn night | A tatami lounge, tea table, bamboo fencing, stone lantern, outdoor bath, steam, and fallen leaves |
 | [`midnight-laundromat`](scenes/midnight-laundromat/) | A quiet late-night laundry | Six round-front machines, moving laundry, folding tables, baskets, detergent, and waiting seats |

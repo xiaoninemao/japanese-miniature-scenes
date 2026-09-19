@@ -1,8 +1,8 @@
 # Hillside Bookshop
 
-A two-story bookshop above a terraced stone street at sunset. Look through the windows for stocked shelves and the upstairs reading room, then explore the outdoor crates, dense autumn maple, and naturally scattered ground leaves.
+A two-story bookshop above a continuous stone-paved slope at sunset. Two stair flights connect the lower street, a level approach to the shop, and the upper terrace. Look through the windows for stocked shelves and the upstairs reading room, then explore the outdoor crates, dense autumn maple, and naturally scattered ground leaves.
 
-![Hillside Bookshop preview](public/preview.png)
+![Hillside Bookshop with connected stone paving and stair landings](public/preview.png?v=abba09c)
 
 ## Run
 
