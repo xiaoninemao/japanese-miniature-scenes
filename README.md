@@ -1,16 +1,14 @@
 # Japanese Miniature Scenes
 
-**Nine quiet corners. One repository. Nine independent little worlds.**
+**Quiet corners, changing seasons.**
 
 A collection of interactive, Japanese-inspired 3D dioramas built with **Three.js, TypeScript, and Vite**. Each scene is a real, freely orbitable miniature: a complete square base, carefully arranged architecture, small everyday objects, and its own weather and lighting.
 
-There are no characters, HUDs, accounts, or backend services. Opening a scene goes straight to the model, with no menu or scene-selection screen.
-
-> This README is the visual overview, not a website landing page. The applications remain separate, and no central gallery is included in the web builds.
+Designed for quiet observation, with no characters or on-screen controls.
 
 ## Scene previews
 
-These are captures of the actual rendered models, not concept images. Click a preview to open its interactive scene. Source folders and run instructions are listed below.
+Click a preview to explore the scene in your browser.
 
 | **Seaside Station** | **Hillside Bookshop** | **Rainy Florist** |
 | :---: | :---: | :---: |
@@ -30,14 +28,13 @@ These are captures of the actual rendered models, not concept images. Click a pr
 ## What is inside
 
 - **Real geometry, not image parallax.** Buildings, furniture, products, plants, and street details are modeled in code and can be viewed from different angles.
-- **Nine distinct settings.** Daylight, sunset, rain, snow, sea air, and autumn evenings shape the atmosphere.
+- **Seasonal atmosphere.** Daylight, sunset, rain, snow, sea air, and autumn evenings shape the mood.
 - **Small ambient animations.** Waves, rain, snow, steam, falling leaves, and rotating laundry appear where appropriate.
 - **Mouse, touch, and keyboard controls.** Orbit, pan, zoom, and reset the camera without an on-screen toolbar.
 - **Reduced-motion support.** Ambient movement is disabled or held at a static state while the model remains interactive.
 - **Static hosting only.** No API keys, accounts, databases, remote asset service, or server runtime is required after building.
-- **Independent scene code.** Every scene owns its geometry, viewer, configuration, and assets. There are no runtime imports between scene projects.
 
-### The nine projects
+### Scenes
 
 | Project | Setting | Details to look for |
 | --- | --- | --- |
@@ -64,7 +61,7 @@ git clone https://github.com/xiaoninemao/japanese-miniature-scenes.git
 cd japanese-miniature-scenes
 npm ci
 
-# Start one scene, not a gallery.
+# Start the seaside station.
 npm run dev --workspace=seaside-station
 ```
 
@@ -103,7 +100,7 @@ npm test
 # Type-check every scene.
 npm run typecheck
 
-# Build all nine projects.
+# Build all scenes.
 npm run build
 
 # Or build and preview a single project.
@@ -121,7 +118,7 @@ The regression tests include model construction and batching, square-base bounds
 
 Build the selected workspace, then upload **the contents of its `dist/` directory** to a static host. Every app uses relative asset paths, so it works at a domain root or under a repository subdirectory.
 
-### Prepare all nine for GitHub Pages
+### Prepare for GitHub Pages
 
 ```bash
 npm run build:pages
@@ -143,14 +140,12 @@ site/
 └── snowy-ramen/index.html
 ```
 
-The output intentionally has **no root `index.html`**. Each scene has its own direct URL; there is no combined landing page.
-
 ### Automatic publishing
 
 The [Deploy miniature scenes](.github/workflows/deploy-pages.yml) workflow publishes through GitHub Pages:
 
 1. A push to `main` installs dependencies and runs the regression tests.
-2. All nine applications are type-checked, built, and assembled into `site/`.
+2. The scenes are type-checked, built, and assembled into `site/`.
 3. Only after the build succeeds is the static output deployed.
 
 Pull requests run the same tests and builds, but do not publish. You can also rerun a deployment from **Actions → Deploy miniature scenes → Run workflow**, using the `main` branch.
@@ -163,7 +158,7 @@ Each published scene has its own URL:
 https://xiaoninemao.github.io/japanese-miniature-scenes/seaside-station/
 ```
 
-Use the corresponding project name for each of the other eight scenes. The repository's Pages root is intentionally not a scene picker.
+Use the corresponding project name to access another scene.
 
 ## Repository layout
 
@@ -174,7 +169,7 @@ Use the corresponding project name for each of the other eight scenes. The repos
 ├── package.json                  # npm workspace commands
 ├── package-lock.json             # one dependency lock for the repository
 ├── scripts/
-│   └── assemble-pages.mjs        # collects static builds; creates no landing page
+│   └── assemble-pages.mjs        # collects static builds
 └── scenes/
     └── <project>/
         ├── README.md
@@ -193,7 +188,7 @@ Use the corresponding project name for each of the other eight scenes. The repos
         └── tests/
 ```
 
-The convenience store and ramen shop split their larger models into additional store, street, weather, and reflection modules. Those modules remain inside their own project.
+The convenience store and ramen shop split their larger models into additional store, street, weather, and reflection modules.
 
 ## Making changes
 
