@@ -201,7 +201,3 @@ The convenience store and ramen shop split their larger models into additional s
 6. Run that workspace's tests and build, inspect the result in a browser, and refresh `public/preview.png` if its appearance changes.
 
 Textures and Japanese signs are drawn in the browser from code. The previews are documentation assets; they are not used as substitutes for the 3D models.
-
-## What is not committed
-
-Installed dependencies, generated `dist/` folders, the assembled `site/` output, local logs, and environment files are ignored. The repository contains the source and documentation needed to reproduce every scene, without nested Git repositories or platform-specific application scaffolding.
