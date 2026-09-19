@@ -113,7 +113,7 @@ npm run preview --workspace=morning-fish-market
 
 Each production app is written to `scenes/<project>/dist/`. These files can be served by any static web host.
 
-The regression tests include model construction and batching, square-base bounds, leaf contact with flat and sloping ground, the fish market's roof-to-wall connections, and the station benches' supports and clearances. Browser rendering still matters when changing materials, camera framing, or lighting.
+The regression tests include model construction and batching, square-base bounds, leaf contact with flat and sloping ground, hillside road/stair/terrace continuity, the fish market's roof-to-wall connections, and the station benches' supports and clearances. Browser rendering still matters when changing materials, camera framing, or lighting.
 
 ## Static deployment
 

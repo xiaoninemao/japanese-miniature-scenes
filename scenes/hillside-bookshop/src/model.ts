@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { type Kit, type XYZ } from "./kit.ts";
 import type { SceneAnimation } from "./types.ts";
 import { scatterGroundLeaves } from "./ground-leaves.ts";
+import { buildBookshopTerrain } from "./terrain.ts";
 
 const C = {
   earth: "#715947",
@@ -34,26 +35,6 @@ export function buildScene(kit: Kit): SceneAnimation {
     const mesh = kit.mesh(new THREE.IcosahedronGeometry(r, 1), kit.toon(color), p);
     if (scale) mesh.scale.set(...scale);
     return mesh;
-  };
-  const wedge = (
-    x: number,
-    z: number,
-    width: number,
-    depth: number,
-    left: number,
-    right: number,
-  ) => {
-    const shape = new THREE.Shape();
-    shape.moveTo(-width / 2, 0.1);
-    shape.lineTo(width / 2, 0.1);
-    shape.lineTo(width / 2, right);
-    shape.lineTo(-width / 2, left);
-    shape.closePath();
-    return kit.mesh(
-      new THREE.ExtrudeGeometry(shape, { depth, bevelEnabled: false }),
-      kit.toon(C.stone),
-      [x, 0, z - depth / 2],
-    );
   };
   const book = (
     x: number,
@@ -145,53 +126,7 @@ export function buildScene(kit: Kit): SceneAnimation {
     for (let i = 0; i < 3; i++) box([0, 0.76 + i * 0.12, -0.3], [0.57, 0.08, 0.045], C.honey, g);
   };
 
-  // The whole diorama sits on a square slab; the street climbs across its face.
-  box([0, -0.2, 0], [15, 0.6, 15], C.earth);
-  box([0, 0.7, -2.4], [13.8, 1.2, 9.3], C.mortar);
-  box([0, 1.33, -2.4], [13.8, 0.09, 9.3], C.stone);
-  const street = wedge(0, 5.68, 14.9, 3.55, 2.3, 0.14);
-  const leafSurfaces = [street];
-  for (let i = 0; i < 30; i++) {
-    const x = -7.13 + i * 0.49;
-    const y = 2.3 - ((x + 7.45) / 14.9) * 2.16;
-    const cobble = box([x, y + 0.035, 5.68], [0.035, 0.018, 3.48], "#8e8171");
-    cobble.rotation.z = -0.144;
-    leafSurfaces.push(cobble);
-  }
-  for (let row = 0; row < 4; row++) {
-    for (let col = 0; col < 21; col++) {
-      const x = -6.7 + col * 0.65 + (row % 2) * 0.16;
-      box([x, 0.24 + row * 0.29, 2.28], [0.59, 0.245, 0.18], row % 2 ? "#9a8871" : C.stone);
-    }
-  }
-  // Broad stair switches diagonally from the low eastern street to the high west lane.
-  for (let i = 0; i < 17; i++) {
-    const x = 5.95 - i * 0.58;
-    const z = 3.88 - i * 0.085;
-    const top = 0.4 + i * 0.155;
-    box([x, (top + 0.1) / 2, z], [0.6, top - 0.1, 1.56], C.stone);
-    box([x, top + 0.018, z + 0.72], [0.6, 0.035, 0.12], "#d6c3a2");
-    if (i % 3 === 0) beam([x, top, z + 0.8], [x, top + 0.7, z + 0.8], 0.03);
-  }
-  beam([5.95, 1.1, 4.68], [-3.33, 3.58, 3.32], 0.038);
-  box([-5.2, 1.43, 1.35], [3.1, 2.66, 2.75], C.mortar);
-  box([-5.2, 2.81, 1.35], [3.15, 0.12, 2.8], C.stone);
-  for (let row = 0; row < 7; row++) {
-    for (let col = 0; col < 4; col++) {
-      box(
-        [-6.3 + col * 0.74 + (row % 2) * 0.08, 0.35 + row * 0.36, 2.77],
-        [0.67, 0.3, 0.1],
-        row % 2 ? C.stone : "#93816c",
-      );
-    }
-  }
-  for (let i = 0; i < 4; i++) {
-    const top = 1.42 + i * 0.345;
-    box([-3.75 - i * 0.37, (top + 1.36) / 2, -0.5], [0.39, top - 1.36 + 0.06, 1.5], C.stone);
-  }
-  for (let x = -3; x < 6.5; x += 0.66) {
-    for (let z = 1.3; z < 2.1; z += 0.42) box([x, 1.39, z], [0.62, 0.035, 0.38], "#c5b394");
-  }
+  const leafSurfaces = buildBookshopTerrain(kit, C);
 
   // Timber frame, open storefront and a glazed upper reading gallery.
   box([0, 1.41, -1.55], [6.1, 0.16, 5.25], C.wood);

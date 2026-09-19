@@ -20,4 +20,6 @@ The app opens directly into this model, without a menu. Mouse drag orbits, right
 
 Edit `src/model.ts` for the shop and tree, `src/config.ts` for the sunset lighting, and `src/ground-leaves.ts` for seeded leaf placement. Ground leaves align to their supporting surface; tests cover flat ground, slopes, and step-edge rejection.
 
+`src/terrain.ts` builds the sloping stone street, two stair flights, the level shop approach, and the upper terrace from connected boundaries. Terrain tests check the joins, step heights, road clearance, and handrail supports.
+
 The production output is this project's `dist/` folder. All runtime files and assets belong to this scene. Reduced-motion preferences are respected.
