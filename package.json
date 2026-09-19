@@ -1,0 +1,14 @@
+{
+  "name": "japanese-miniature-scenes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.18.0" },
+  "workspaces": ["scenes/*"],
+  "scripts": {
+    "test": "npm test --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "build": "npm run build --workspaces",
+    "build:pages": "npm run build && node scripts/assemble-pages.mjs"
+  }
+}
